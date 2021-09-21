@@ -1,0 +1,43 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    
+    <h5>LISTADO DE ASIGNATURAS</h5>
+    
+    <table class="table">
+        <thead>
+            {% for curso in cursos %}
+               <tr> <th colspan="4"> Asignaturas de  {{curso.curso}}ª {{curso.titulacion}}</th></tr>
+        </thead>
+        <tbody>
+            {% for asignatura in asignaturas %}
+            {% if curso.id == asignatura.idCurso %}
+            <tr>
+            <td> {{asignatura.nombre}}  </td>
+            <td>{{asignatura.creditos}} créditos</td>
+            <td>{{asignatura.duracion}} horas</td>
+                {% if app.session.get('usuario') %}   
+                <td> 
+                    <a href="{{path('apuntarse', {'id' : asignatura.id }) }}">
+                    <button><i class="fa fa-plus"></i> Apuntarse</button>
+                    </a> 
+                </td>
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

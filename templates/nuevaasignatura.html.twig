@@ -1,0 +1,32 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    
+    <h5>AÑADIR ASIGNATURA A: {{curso.curso}}ª {{curso.titulacion}}</h5>
+    
+    <form class="form" action="{{path('crearasig', {'id' : curso.id })}}">
+        <label class="field" for="curso">Curso: </label>
+        <input class="field" type="text" name="idcurso" value="{{curso.curso}}ª {{curso.titulacion}}" disabled>
+        <label class="field" for="nombre">Asignatura: </label>
+        <input class="field" type="text" name="nombre">
+        <label class="field" for="creditos">Créditos</label>
+        <input class="field" type="text" name="creditos">
+        <label class="field" for="duracion">Duración (horas)</label>
+        <input class="field" type="text" name="duracion">
+
+        <input class="mt-3 mb-3" type="submit" value="Añadir">
+    </form>
+
+    <button><a href="{{path('detalles', {'id' : curso.id })}}"> Atrás</a></button>
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

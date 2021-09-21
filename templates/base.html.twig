@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <!-- Bootstrap CSS -->
+        
+        <link href="{{ asset ('css/bootstrap.css') }}" rel="stylesheet" >
+        <link href="{{ asset ('estilo.css') }}" rel="stylesheet" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>{% block title %}PRUEBA TÉCNICA{% endblock %}</title>
+        {% block stylesheets %}
+        
+        {% endblock %}
+    </head>
+    <body> 
+
+        <h2 class="title">PRUEBA TÉCNICA SYMFONY 5</h2>
+
+        <ul class="menu">
+            <li class="menu-list"><a href="{{ ('/asignaturas') }}">ASIGNATURAS</a></li>
+            <li class="menu-list"><a href="{{ ('/cursos') }}">CURSOS</a></li>
+         {% if app.session.get('usuario') %}   
+         <li class="menu-list"><a href="{{ ('/misdatos') }}">MIS DATOS</a></li>
+        <span>
+        Bienvenid@ {{app.session.get('usuario')}}</span>
+         <button><a  href="{{'/logout'}}">LOGOUT</a></button> 
+        {% else %}
+            <li class="menu-list"><a href="{{ ('/') }}">LOGIN</a></li>
+            <li class="menu-list"><a href="{{ ('/registro') }}">REGISTRARSE</a></li>
+        {% endif %}
+        
+        </ul>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+       
+        {% endblock %}
+    
+    </body>
+</html>

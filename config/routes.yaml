@@ -1,0 +1,30 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+inicio:
+  path: /
+  controller: APP\Controller\DefaultController::inicio
+detalles:
+  path: /detalles/{id}
+  controller: APP\Controller\DefaultController::detalles
+nuevaasignatura:
+  path: /nuevaasignatura/{id}
+  controller: APP\Controller\DefaultController::nuevaasignatura
+crearasig:
+  path: /crearasig/{id}
+  controller: APP\Controller\DefaultController::crearasig
+misdatos:
+  path: /misdatos/{id}
+  controller: APP\Controller\DefaultController::misdatos
+apuntarse:
+  path: /apuntarse/{id}
+  controller: APP\Controller\DefaultController::apuntarse
+detalleasignatura:
+  path: /detalleasignatura/{id}
+  controller: APP\Controller\DefaultController::detalleasignatura
+editarasignatura:
+  path: /editarasignatura/{id}
+  controller: APP\Controller\DefaultController::editarasignatura
+borrarasig:
+  path: /borrarasig/{id}
+  controller: APP\Controller\DefaultController::borrarasig

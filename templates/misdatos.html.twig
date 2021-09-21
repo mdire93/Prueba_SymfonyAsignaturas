@@ -1,0 +1,64 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    <h5> MIS DATOS </h5>
+    
+    <table class="table">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <td colspan="2"> Usuario: {{usuario.usuario}}</td>
+            </tr>
+            <tr>
+                <td> Nombre: {{usuario.nombre}} {{usuario.apellidos}}</td>
+                <td> Email: {{usuario.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table">
+          <thead>
+            <tr>
+                <th colspan="2"> Mis asignaturas: </td>
+            </tr>
+            <tr>
+                <th>Asignatura</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for miasignatura in misasignaturas %}
+                {% if miasignatura.idUsuario == usuario.id %}
+                    {% for asignatura in asignaturas %}
+                        {% if asignatura.id == miasignatura.idAsignatura %}
+                        <tr>
+                        <td>{{ asignatura.nombre}}</td>
+                        {% for curso in cursos %}
+                            {% if curso.id == asignatura.idCurso %}
+                            <td> {{curso.curso}}ª {{curso.titulacion}}</td>
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <button><i class="fa fa-pencil"></i><a href="{{('/formulariodatos')}}"> Editar datos</a></button>
+    <button><i class="fa fa-plus"></i><a href="{{ ('/asignaturas') }}"> Apuntarse a asignaturas</a></button>
+
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

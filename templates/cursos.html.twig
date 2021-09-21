@@ -1,0 +1,41 @@
+
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        {{parent()}}
+    {% endblock %}
+
+    {% block body %}
+        
+        <h5>LISTADO DE CURSOS</h5>
+        
+        <table class="table">
+            <thead>
+                <th>Curso</th>
+                <th>Duración (meses)</th>
+                <th>Año académico</th>
+                <th></th>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+                <tr>
+                <td> {{curso.curso}}ª {{curso.titulacion}}</td>
+                <td> {{curso.duracion}}</td>
+                <td> {{curso.anio}}</td>
+                <td>
+                    <button> <a href="{{path('detalles', {'id' : curso.id })}}"> Ver más <i class="fa fa-info-circle"></i></a></button>
+                </td>
+            </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+            <button>
+                <a href="{{('/nuevocurso')}}"> Nuevo curso</a> </button>
+    {% endblock %}
+
+    {% block javascripts %}
+       
+    {% endblock %}
+    
+

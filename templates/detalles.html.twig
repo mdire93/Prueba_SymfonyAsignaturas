@@ -1,0 +1,52 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    
+    <h4 class="mb-2"> {{curso.curso}}ª {{curso.titulacion}} </h4>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="4">Duración total del curso: {{curso.duracion}} meses</th>
+            </tr> 
+            <tr>
+            <th>Asignaturas</th>
+            <th>Créditos</th>
+            <th>Duración (horas)</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for asignatura in asignaturas %}
+                {% if curso.id == asignatura.idCurso %}
+                <tr>
+                    <td>{{asignatura.nombre}}</td>
+                    <td>{{asignatura.creditos}}</td>
+                    <td>{{asignatura.duracion}} horas</td>
+                    <td> 
+                        <a href="{{path('detalleasignatura', {'id' : asignatura.id }) }}">
+                        <button><i class="fa fa-pencil"></i> Editar</button>
+                        </a> <a href="{{path('borrarasig', {'id' : asignatura.id }) }}">
+                        <button><i class="fa fa-trash"></i> Eliminar</button>
+                        </a> 
+                </tr>
+                {% endif %}
+            {% endfor %}
+        
+        </tbody>
+    </table>
+        <button> <a href="{{path('nuevaasignatura', {'id' : curso.id }) }}"> Añadir asignatura </a></button>
+        
+        <button> <a href="{{('/cursos')}}"> Atrás </a></button>
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

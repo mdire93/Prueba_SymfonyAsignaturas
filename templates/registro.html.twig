@@ -1,0 +1,32 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    
+    <h5>FORMULARIO DE REGISTRO</h5>
+    
+    <form class="form" action="{{ ('/nuevousuario') }}">
+        <label class="field" for="usuario" >Usuario: * </label>
+        <input class="field" type="usuario" name="usuario" required >
+        <label class="field" for="nombre">Nombre: * </label>
+        <input class="field" type="text" name="nombre" required>
+        <label class="field" for="apellidos">Apellidos: *</label>
+        <input class="field" type="text" name="apellidos" required>
+        <label class="field" for="email"> Email: *</label>
+        <input class="field" type="text" name="email" required>
+        <label class="field" for="pass"> Contraseña: *</label>
+        <input class="field" type="password" name="pass" required>
+
+        <input class="mt-3" type="submit" value="Registrarse">
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    
+    <h5>EDITAR ASIGNATURA</h5>
+    
+    <form class="form" action="{{path ('editarasignatura', { 'id' : asignatura.id }) }}">
+        <label class="field" for="nombre" >Nombre: * </label>
+        <input class="field" type="nombre" value="{{asignatura.nombre}}" name="nombre" required >
+        <label class="field" for="creditos">Créditos: * </label>
+        <input class="field" type="number" value="{{asignatura.creditos}}" name="creditos" required>
+        <label class="field" for="duracion">Duración (en meses): *</label>
+        <input class="field" type="text" value="{{asignatura.duracion}}" name="duracion" required>
+      
+        <input class="mt-3" type="submit"  value="Editar">
+        <a href="{{path('detalles', {'id' : asignatura.idCurso }) }}"> 
+            <input class="mt-3" type="button"  value="Atrás">
+        </a>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

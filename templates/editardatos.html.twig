@@ -1,0 +1,33 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+{% block body %}
+    
+    <h5>EDITAR MIS DATOS</h5>
+    
+    <form class="form" action="{{ ('/editardatos') }}">
+        <label class="field" for="usuario" >Usuario: * </label>
+        <input class="field" type="usuario" value="{{usuario.usuario}}" name="usuario" required >
+        <label class="field" for="nombre">Nombre: * </label>
+        <input class="field" type="text" value="{{usuario.nombre}}" name="nombre" required>
+        <label class="field" for="apellidos">Apellidos: *</label>
+        <input class="field" type="text" value="{{usuario.apellidos}}" name="apellidos" required>
+        <label class="field" for="email"> Email: *</label>
+        <input class="field" type="text" value="{{usuario.email}}" name="email" required>
+        <label class="field" for="pass"> Nueva contraseña: *</label>
+        <input class="field" type="password" name="pass" required>
+
+        <input class="mt-3 mb-3" type="submit" value="Editar">
+    </form>
+    <button><a href="{{ ('/misdatos') }}"> Atrás</a></button>
+{% endblock %}
+
+{% block javascripts %}
+   
+{% endblock %}
+
+

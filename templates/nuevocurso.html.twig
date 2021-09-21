@@ -10,13 +10,13 @@
     <h5>AÑADIR CURSO</h5>
     
     <form class="form" action="{{('/crearcurso')}}">
-        <label class="field" for="titulacion">Curso: </label>
-        <input class="field mb-1" placeholder="1, 2..." type="number" name="curso">
-        <input class="field" type="text" name="titulacion">
+        <label class="field" for="titulacion" >Curso: </label>
+        <input class="field mb-1" placeholder="1, 2..." type="number" required name="curso">
+        <input class="field" type="text" required name="titulacion">
         <label class="field" for="duracion">Duración del curso: </label>
-        <input class="field" type="text" name="duracion">
+        <input class="field" type="text" required name="duracion">
         <label class="field" for="anio">Año académico: </label>
-        <input class="field" type="text" name="anio">
+        <input class="field" type="text"  required placeholder="Ej: 2020 - 2021" name="anio">
 
         <input class="mt-3 mb-3" type="submit" value="Añadir">
     </form>

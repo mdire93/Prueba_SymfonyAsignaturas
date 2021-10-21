@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bbd_genst`
+-- Base de datos: `bbdd_asignaturas`
 --
-CREATE DATABASE IF NOT EXISTS `bbd_genst` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bbd_genst`;
+CREATE DATABASE IF NOT EXISTS `bbdd_asignaturas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bbdd_asignaturas`;
 
 -- --------------------------------------------------------
 
